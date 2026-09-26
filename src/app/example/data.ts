@@ -1,0 +1,103 @@
+import {Cat} from "../../types/cat";
+
+const cats: Cat[] = [
+    {
+        id: 0,
+        name: "Mei Mei",
+        age: 11,
+        color: "Tan",
+        breed: "Domestic Shorthair",
+        gender: "Female",
+        image: "/images/cat-images/mei-mei.jpg",
+        description: "Hello, I am Mei Mei!",
+        available: true,
+        personality: "Happy"
+
+    },
+    {
+        id: 1,
+        name: "Jiggy",
+        age: 6,
+        color: "Light Brown",
+        breed: "Dwarf",
+        gender: "Male",
+        image: "/images/cat-images/jiggy.jpg",
+        description: "Hello, I am Jiggy!",
+        available: false,
+        personality: "Excited"
+
+    },
+    {
+        id: 2,
+        name: "Guangdang",
+        age: 8,
+        color: "Brown",
+        breed: "Chinese Domestic Shorthair",
+        gender: "Female",
+        image: "/images/cat-images/guangdang.jpg",
+        description: "Hello, I am Guangdang!",
+        available: true,
+        personality: "Joyful"
+    },
+    {
+        id: 3,
+        name: "Gojo",
+        age: 6,
+        color: "White",
+        breed: "British Shorthair",
+        gender: "Male",
+        image: "/images/cat-images/gojo.jpg",
+        description: "Hello, I am Gojo and I am the strongest.",
+        available: true,
+        personality: "Cocky"
+    },
+    {
+        id: 4,
+        name: "Maxwell",
+        age: 10,
+        color: "Black",
+        breed: "Siamese",
+        gender: "Male",
+        image: "/images/cat-images/maxwell.jpg",
+        description: "Hello, I am Maxwell.",
+        available: false,
+        personality: "Nerdy"
+    },
+    {
+        id: 5,
+        name: "Mr. Fresh",
+        age: 7,
+        color: "Calico",
+        breed: "Maine Coon",
+        gender: "Male",
+        image: "/images/cat-images/mr-fresh.jpg",
+        description: "Hello, I am Mr. Fresh.",
+        available: true,
+        personality: "Funny"
+    },
+    {
+        id: 6,
+        name: "Momo",
+        age: 3,
+        color: "Gray",
+        breed: "Bengal",
+        gender: "Female",
+        image: "/images/cat-images/momo.jpg",
+        description: "Hello, I am Momo.",
+        available: false,
+        personality: "Reserved"
+
+    },
+    {
+        id: 7,
+        name: "Komaru",
+        age: 5,
+        color: "Gray",
+        breed: "Scottish Fold",
+        gender: "Male",
+        image: "/images/cat-images/komaru.jpg",
+        description: "Hello I am Komaru and I am a war veteran.",
+        available: true,
+        personality: "Cold"
+    },
+];
