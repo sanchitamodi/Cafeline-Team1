@@ -1,14 +1,10 @@
 export interface Cat {
-  id: number;
+  id: string;
   name: string;
   age: number;
-  color: string;
   breed: string;
-  gender: string;
   image: string;
   description: string;
   available: boolean;
-  personality: string;
+  personality: string[];
 }
-
-
