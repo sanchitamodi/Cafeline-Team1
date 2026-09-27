@@ -1,25 +1,35 @@
 import { Cat } from "@/types/cat";
+import { cats } from "@/app/example/data";
 
-function getCats(): Promise<Array<Cat>> | null {
-  return null;
+interface RouteParams {
+  params: Promise<{ name: string; available: boolean }>;
 }
-async function updateCat(name: string) {}
+
+function getCats(): Array<Cat> {
+  return cats;
+}
+async function updateCat(name: string, available: boolean, body: any): Promise<Cat | undefined> {
+  const cat: Cat | undefined = cats.find((cat) => cat.name == name);
+
+  if (cat) {
+    cat.available = available;
+  }
+
+  return cat;
+}
 
 export async function GET() {
   // lowkey gonna wait on the data but the variable is here
-  let cats /*: Array<Cat>*/ = await getCats();
+  const theCats: Array<Cat> = getCats();
 
-  if (cats) {
-    0;
-  }
-
-  return Response.error();
+  return Response.json(theCats);
 }
 
-export async function PUT(request: Request) {
+export async function PUT(request: Request, { params }: RouteParams) {
   // https://oneuptime.com/blog/post/2026-01-24-nextjs-route-handlers/view
+  const { name, available } = await params;
   const body = await request.json();
-  const updatedCat = await updateCat(body.name);
+  const updatedCat = await updateCat(name, available, body);
 
   return Response.json(updatedCat);
 }
