@@ -2,10 +2,9 @@ import Navbar from "@/components/Navbar";
 import styles from "./meetCats.module.css";
 import { cats } from "@/app/example/data";
 
-export default function MeetTheCats() {
+export default function Cats() {
   return (
     <main>
-      <Navbar />
       <h1>Meet the cats!</h1>
       <ul className={styles.grid}>
         {cats.map((cat) => (
