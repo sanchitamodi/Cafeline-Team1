@@ -15,12 +15,15 @@ const tabs = [
 export default function Navbar() {
   return (
     <nav className={styles.nav}>
-      {tabs.map((tab) => (
-        <Link href={tab.link} className={styles.navbarfont} key={tab.link}>
-          {tab.name}
-          <div className={styles.underline} />
-        </Link>
-      ))}
+      <h2 className={styles.header}> Cafeline</h2>
+      <div className={styles.navItems}>
+        {tabs.map((tab) => (
+          <Link href={tab.link} className={styles.navbarfont} key={tab.link}>
+            {tab.name}
+            <div className={styles.underline} />
+          </Link>
+        ))}
+      </div>
     </nav>
   );
 }

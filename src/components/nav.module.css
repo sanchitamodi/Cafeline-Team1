@@ -2,13 +2,19 @@
   flex: 1;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   gap: 24px;
   width: 100%;
   height: 64px;
   align-items: center;
 }
 
+.navItems {
+  display: flex;
+  gap: 24px;
+  flex-direction: row;
+  align-items: center;
+}
 .navbarfont {
   font-family: var(--font-sniglet);
   font-size: 18px;
@@ -25,4 +31,8 @@
   width: 100%;
   height: 10px;
   color: blue;
+}
+
+.header {
+  font-size: 30px;
 }
