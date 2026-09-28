@@ -4,7 +4,7 @@ import styles from "./nav.module.css";
 const tabs = [
   {
     name: "Home",
-    link: "/home",
+    link: "/",
   },
   { name: "About", link: "/about" },
   { name: "Meet the Cats", link: "/cats" },
@@ -18,6 +18,7 @@ export default function Navbar() {
       {tabs.map((tab) => (
         <Link href={tab.link} className={styles.navbarfont} key={tab.link}>
           {tab.name}
+          <div className={styles.underline} />
         </Link>
       ))}
     </nav>
