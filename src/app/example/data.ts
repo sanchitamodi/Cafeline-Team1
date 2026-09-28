@@ -1,6 +1,6 @@
 import { Cat } from "../../types/cat";
 
-const cats: Cat[] = [
+export const cats: Cat[] = [
   {
     id: 0,
     name: "Mei Mei",
