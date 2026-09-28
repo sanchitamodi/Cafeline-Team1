@@ -1,3 +1,4 @@
+import Footer from "@/components/footer";
 import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import { Sniglet } from "next/font/google";
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
