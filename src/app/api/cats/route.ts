@@ -8,10 +8,10 @@ interface RouteParams {
 function getCats(): Array<Cat> {
   return cats;
 }
-async function updateCat(name: string, available: boolean, body: any): Promise<Cat | undefined> {
+async function updateCat(name: string | null, available: boolean | null): Promise<Cat | undefined> {
   const cat: Cat | undefined = cats.find((cat) => cat.name == name);
 
-  if (cat) {
+  if (cat && available) {
     cat.available = available;
   }
 
@@ -25,11 +25,23 @@ export async function GET() {
   return Response.json(theCats);
 }
 
-export async function PUT(request: Request, { params }: RouteParams) {
+export async function PUT(request: Request) {
   // https://oneuptime.com/blog/post/2026-01-24-nextjs-route-handlers/view
-  const { name, available } = await params;
-  const body = await request.json();
-  const updatedCat = await updateCat(name, available, body);
 
-  return Response.json(updatedCat);
+  // const searchParams = request.url.searchParams;
+
+  const body = await request.json();
+  // const name = searchParams.get("name");
+  // const available = searchParams.get("available") === "true";
+
+  // console.log(name, available);
+  // const updatedCat = await updateCat(name, available);
+
+  // if (!updatedCat) {
+  //   return Response.error();
+  // }
+
+  // return Response.json(updatedCat);
+
+  return Response.json("Cat has change >:)");
 }
