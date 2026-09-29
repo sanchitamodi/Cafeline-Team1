@@ -4,7 +4,6 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 
-
 //! Update metadata to match your project
 export const metadata: Metadata = {
   title: "Create Next App",
