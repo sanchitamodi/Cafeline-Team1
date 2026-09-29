@@ -1,3 +1,5 @@
+import Footer from "@/components/footer";
+import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import { Sniglet } from "next/font/google";
 
@@ -16,7 +18,11 @@ const CuteFont = Sniglet({
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${CuteFont.className}`}>
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

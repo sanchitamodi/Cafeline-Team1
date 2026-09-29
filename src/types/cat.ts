@@ -10,5 +10,3 @@ export interface Cat {
   available: boolean;
   personality: string;
 }
-
-
