@@ -1,5 +1,6 @@
 import { Cat } from "@/types/cat";
 import { cats } from "@/app/example/data";
+import { NextResponse } from "next/server";
 
 function getCats(): Array<Cat> {
   return cats;
@@ -26,8 +27,7 @@ export async function PUT(request: Request) {
   console.log(await request.json());
 
   return Response.json({ message: "Cat updated" });
-import { NextResponse } from "next/server";
-
+}
 export async function POST(request: Request) {
   let body;
   try {
