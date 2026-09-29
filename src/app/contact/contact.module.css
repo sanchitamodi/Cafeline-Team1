@@ -1,0 +1,43 @@
+.page {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.body {
+  text-align: center;
+}
+
+.contactForm {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 5px solid #e6c390;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
+}
+
+.label {
+  width: 75%;
+  display: block;
+  margin-bottom: 8px;
+  color: #000000;
+}
+
+.field {
+  width: 75%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #020202;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: vertical;
+}
+
+.form {
+  width: 500px;
+  margin: 0 auto;
+}
