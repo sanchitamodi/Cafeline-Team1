@@ -1,7 +1,17 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import styles from "./contact.module.css";
+import { useState } from "react";
 
 export default function Contact() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitted(true);
+  };
+
   return (
     <main className={styles.page}>
       <div className={styles.body}>
@@ -12,7 +22,7 @@ export default function Contact() {
         Phone: (805)-123-456 <br /> Email: cafeline@yahoo.com <br /> Instagram: @Cafeline_cats <br />
         <p></p>
       </div>
-      <form className={styles.contactForm}>
+      <form className={styles.contactForm} onSubmit={handleSubmit}>
         <label htmlFor="name" className={styles.label}>
           Name
         </label>
@@ -27,6 +37,7 @@ export default function Contact() {
         <textarea id="message" name="message" className={styles.field} required></textarea>
         <input type="submit" value="Submit" />
       </form>
+      {submitted && <p>Thank you for your submission!</p>}
     </main>
   );
 }
