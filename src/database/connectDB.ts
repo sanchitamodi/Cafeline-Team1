@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI ?? "";
+const MONGO_URI = process.env.MONGO_URI ?? "";
 
-if (!MONGODB_URI) {
-  throw new Error("Please define MONGODB_URI in .env.local");
+if (!MONGO_URI) {
+  throw new Error("Please define MONGO_URI in .env.local");
 }
 
 export default async function connectDB() {
@@ -11,5 +11,5 @@ export default async function connectDB() {
     return mongoose.connection;
   }
 
-  return mongoose.connect(MONGODB_URI);
+  return mongoose.connect(MONGO_URI);
 }
