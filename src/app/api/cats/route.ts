@@ -1,10 +1,7 @@
 import { Cat } from "@/types/cat";
 import { cats } from "@/app/example/data";
 import { NextResponse } from "next/server";
-
-function getCats(): Array<Cat> {
-  return cats;
-}
+import getCats from "@/database/getCats";
 
 async function updateCat(name: string | null, available: boolean | null): Promise<Cat | undefined> {
   const cat: Cat | undefined = cats.find((cat) => cat.name == name);
@@ -17,9 +14,15 @@ async function updateCat(name: string | null, available: boolean | null): Promis
 }
 
 export async function GET() {
-  // lowkey gonna wait on the data but the variable is here
-  const theCats: Array<Cat> = getCats();
+  let theCats;
 
+  try {
+    theCats = getCats();
+  } catch (err) {
+    throw new Error(`Could not get cats: ${err}`);
+  }
+
+  console.log("Database done worked.");
   return Response.json(theCats);
 }
 
