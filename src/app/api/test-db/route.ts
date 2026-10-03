@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import connectDB from "@/database/connectDB";
+import CatModel from "@/database/catSchema";
 
 export async function GET() {
   try {
