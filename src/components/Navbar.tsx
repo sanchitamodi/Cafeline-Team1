@@ -15,7 +15,7 @@ const tabs = [
 export default function Navbar() {
   return (
     <nav className={styles.nav}>
-      <h2 className={styles.header}> Cafeline</h2>
+      <h2 className={styles.header}> Cafeline </h2>
       <div className={styles.navItems}>
         {tabs.map((tab) => (
           <Link href={tab.link} className={styles.navbarfont} key={tab.link}>

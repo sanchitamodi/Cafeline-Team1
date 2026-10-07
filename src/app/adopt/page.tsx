@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { cats } from "../example/data";
 import { useState, FormEvent } from "react";
 import styles from "./adopt.module.css";
@@ -13,7 +14,7 @@ export default function Adopt() {
   }
 
   return (
-    <main className={styles.page}>
+    <main className={"about-page"}>
       <h1>The Cafeline Adoption Process</h1>
       <p>
         Browse our cats avaiable for adoption, then visit Cafeline to meet them in person. Spend some time getting to
@@ -59,6 +60,10 @@ export default function Adopt() {
         <button type="submit">Submit Application</button>
         {submitted && <p>Your Application was submitted! </p>}
       </form>
+
+      <Link href="adopt/add/" className={styles.addButton}>
+        NEED TO PUT A CAT UP FOR ADOPTION? CLICK HERE
+      </Link>
     </main>
   );
 }
