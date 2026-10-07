@@ -24,7 +24,6 @@ async function validateCat(cat: Cat): Promise<boolean> {
     return false;
   }
   return true;
-
 }
 
 async function updateCat(name: string | null, available: boolean | null): Promise<Cat | undefined> {
@@ -46,7 +45,6 @@ export async function GET() {
     console.error(err);
     return NextResponse.json({ error: "Could not fetch cats" }, { status: 500 });
   }
-
 }
 
 export async function PUT(request: Request) {
