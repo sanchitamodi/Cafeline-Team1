@@ -1,7 +1,31 @@
+import mongoose from "mongoose";
 import { Cat } from "@/types/cat";
 import { cats } from "@/app/example/data";
 import { NextResponse } from "next/server";
 import getCats from "@/database/getCats";
+import connectDB from "@/database/db";
+
+const catSchema = new mongoose.Schema({
+  name: { type: String, required: true, trim: true },
+  age: { type: Number, required: true, min: 0 },
+  gender: { type: String },
+  available: { type: Boolean, required: true },
+  color: String,
+  breed: String,
+  image: String,
+  description: String,
+  personality: [String],
+});
+
+const CatObject = mongoose.models.cat || mongoose.model("cat", catSchema);
+
+async function validateCat(cat: Cat): Promise<boolean> {
+  const { name, age, available } = cat;
+  if (!name || !age || available === undefined) {
+    return false;
+  }
+  return true;
+}
 
 async function updateCat(name: string | null, available: boolean | null): Promise<Cat | undefined> {
   const cat: Cat | undefined = cats.find((cat) => cat.name == name);
@@ -14,16 +38,24 @@ async function updateCat(name: string | null, available: boolean | null): Promis
 }
 
 export async function GET() {
-  let theCats;
+  //let theCats;
 
+  //try {
+  //  theCats = getCats();
+  //} catch (err) {
+  //  throw new Error(`Could not get cats: ${err}`);
+  //}
+
+  //console.log("Database done worked.");
+  //return Response.json(theCats);
   try {
-    theCats = getCats();
+    await connectDB();
+    const cats = await CatObject.find({}).lean<Cat[]>();
+    return NextResponse.json(cats);
   } catch (err) {
-    throw new Error(`Could not get cats: ${err}`);
+    console.error(err);
+    return NextResponse.json({ error: "Could not fetch cats" }, { status: 500 });
   }
-
-  console.log("Database done worked.");
-  return Response.json(theCats);
 }
 
 export async function PUT(request: Request) {
@@ -33,6 +65,8 @@ export async function PUT(request: Request) {
 }
 export async function POST(request: Request) {
   let body;
+  await connectDB();
+
   try {
     //catching and getting info from json, then checks if said json is valid or not
     body = await request.json();
@@ -40,11 +74,17 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Error: Invalid JSON" }, { status: 400 });
   }
 
-  //checking if we have a cat_name property: when we add more fields and a type for cats we will update this further
-  if (!body.cat_name) {
-    return NextResponse.json({ error: "Error: cat_name is required" }, { status: 400 });
+  let validation = await validateCat(body);
+
+  if (!validation) {
+    return NextResponse.json({ error: "Error: Missing required fields" }, { status: 400 });
   }
 
-  //return as created
-  return NextResponse.json({ created: body }, { status: 201 });
+  try {
+    const catData = await CatObject.create(body);
+    await catData.save();
+    return NextResponse.json({ created: catData }, { status: 201 });
+  } catch {
+    return NextResponse.json({ error: "Error: Invalid JSON" }, { status: 400 });
+  }
 }
