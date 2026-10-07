@@ -1,0 +1,196 @@
+/* ========================================================
+   1. MAIN PAGE CONTENT & CONTAINER WRAPPERS
+   ======================================================== */
+.about-page {
+  width: min(900px, calc(100% - 3rem));
+  margin: 3rem auto;
+  padding: 2.5rem;
+  box-sizing: border-box;
+  background-color: #fffaf2;
+  border-radius: 20px;
+}
+
+.about-page h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.about-page section {
+  margin-bottom: 2.5rem;
+}
+
+.about-page h2 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.about-page p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.menu-section {
+  margin-top: 1.5rem;
+  padding: 0.5rem 2rem 2rem;
+  background-color: #e6c8a5;
+  border-radius: 18px;
+}
+
+.menu-section h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* ========================================================
+   2. CATEGORY TITLES (COFFEE, NON COFFEE, TREATS) - RE-ENGINEERED
+   ======================================================== */
+.category-title,
+.menu-column h2,
+.menu-section h2:not(:first-of-type) {
+  position: relative;
+  font-size: 1.7rem !important;
+  text-align: left !important;
+  margin-top: 3.5rem !important;
+  margin-bottom: 1.5rem !important;
+  padding-left: 0.2rem !important;
+  padding-bottom: 2px !important;
+  line-height: 1 !important;
+}
+
+/* Forces the absolute first heading in BOTH columns to drop down at the same distance */
+.menu-column:first-child h2:first-of-type,
+.menu-column:last-child h2:first-of-type {
+  margin-top: 2rem !important;
+}
+
+.category-title::after,
+.menu-column h2::after,
+.menu-section h2:not(:first-of-type)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: #6b4f3a;
+
+  top: 105% !important;
+}
+
+/* ========================================================
+   3. MULTI-SIZE HEADER BOX ALIGNMENT (FIXED)
+   ======================================================== */
+.menu-header-row {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.25rem;
+
+  border-bottom: 1.5px solid transparent !important;
+}
+
+/* Removes the line structure completely for Treats and Add-ins spacers too */
+.menu-header-row.spacer-row {
+  border-bottom: 1.5px solid transparent !important;
+}
+
+.header-box-12,
+.header-box-16 {
+  font-size: 0.95rem;
+  color: #6b4f3a !important;
+  font-weight: bold;
+  white-space: nowrap;
+  text-align: center;
+  display: inline-block;
+  width: 65px;
+}
+
+/* ========================================================
+   4. MENU ITEMS & SOLIDIFIED PRICE CONTAINERS
+   ======================================================== */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.menu-dots {
+  flex: 1;
+  border-bottom: 3px dotted #6b4f3a;
+  align-self: center;
+  transform: translateY(-2px);
+  margin-right: 2px;
+}
+
+.price-box-12,
+.price-box-16 {
+  white-space: nowrap;
+  text-align: center;
+  display: inline-block;
+  width: 65px;
+}
+
+.menu-price-dots {
+  width: 16px;
+  margin: 0 4px;
+  border-bottom: 3px dotted #6b4f3a;
+  align-self: center;
+  transform: translateY(-2px);
+}
+
+.menu-price {
+  white-space: nowrap;
+  text-align: left;
+}
+
+.drink-row-group {
+  margin-bottom: 0.5rem;
+}
+
+.menu-description {
+  margin: 0.2rem 0 1rem;
+  font-size: 0.9rem !important;
+  line-height: 1.4 !important;
+}
+
+/* ========================================================
+   5. INVISIBLE STRUCTURE SPACING ALIGNMENT BOXES
+   ======================================================== */
+.menu-name-spacer,
+.menu-dots-hidden,
+.menu-price-dots-hidden {
+  visibility: hidden;
+}
+
+.menu-dots-hidden {
+  flex: 1;
+}
+
+.menu-price-dots-hidden {
+  width: 16px;
+  margin: 0 4px;
+}
+
+/* ========================================================
+   6. BOTTOM MENU LAYOUT (Treats & Add-Ins Layout)
+   ======================================================== */
+.bottom-menu-grid {
+  max-width: 850px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+/* ========================================================
+   7. RESPONSIVE MOBILE VIEWPORTS
+   ======================================================== */
+@media (max-width: 650px) {
+  .bottom-menu-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
