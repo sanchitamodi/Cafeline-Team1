@@ -4,6 +4,7 @@ import { cats } from "@/app/example/data";
 import { NextResponse } from "next/server";
 import getCats from "@/database/getCats";
 import connectDB from "@/database/db";
+export const dynamic = "force-dynamic";
 
 const catSchema = new mongoose.Schema({
   name: { type: String, required: true, trim: true },
@@ -38,16 +39,16 @@ async function updateCat(name: string | null, available: boolean | null): Promis
 }
 
 export async function GET() {
-  //let theCats;
+  // let theCats;
 
-  //try {
+  // try {
   //  theCats = getCats();
-  //} catch (err) {
+  // } catch (err) {
   //  throw new Error(`Could not get cats: ${err}`);
-  //}
+  // }
 
-  //console.log("Database done worked.");
-  //return Response.json(theCats);
+  // console.log("Database done worked.");
+  // return Response.json(theCats);
   try {
     await connectDB();
     const cats = await CatObject.find({}).lean<Cat[]>();
