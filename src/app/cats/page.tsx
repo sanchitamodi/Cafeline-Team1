@@ -22,7 +22,7 @@ export default function Cats() {
         const response = await fetch("/api/gitcats");
 
         if (!response.ok) {
-          throw new Error("Failed to fetch cat dats from database.");
+          throw new Error("Failed to fetch cat data from database.");
         }
 
         const data = await response.json();
