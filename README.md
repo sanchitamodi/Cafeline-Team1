@@ -1,6 +1,6 @@
-# name of non-profit
+# Cafeline
 
-{One sentence description of the project}
+A cat cafe where you can adopt and support cats in need!
 
 ## Table of Contents
 
@@ -13,17 +13,19 @@
 
 ### Purpose
 
-{Short paragraph description of the non-profit mission and the purpose of this project. Who will this project help, why is it necessary. Impact of the project.}
+Cafeline's mission is to create a website where people can support cats in need, whether that be by buying a coffee and contributing to the cost of cat food and enrichment, or whether it be giving a cat their forever home, Cafeline is a place that cats can call home. This project will help cats in need, and this is necessary due to amount of cats that have no home.
 
 ### Team
 
-The {non-profit name} team consists of {#} Cal Poly students. Over the course of about 9 months, we worked as a team to deploy this web application. The team members are listed below:
+The Cafeline team consists of 7 Cal Poly students. Over the course of about 4 weeks, we worked as a team to deploy this web application. The team members are listed below:
 
-- [First Last](https://www.linkedin.com/) - Project Manager
-- [First Last](https://www.linkedin.com/) - Designer
-- [First Last](https://www.linkedin.com/) - Tech Lead
-- [First Last](https://www.linkedin.com/) - Tech Lead
-- [First Last](https://www.linkedin.com/) - Software Developer
+- Sanchita Modi - Tech Lead
+- Cameron DeMartini - Software Developer
+- Amy Kyte - Software Developer
+- Alexa Min - Software Developer
+- Kaito Pangelinan - Software Developer
+- Joshua Rashtian - Software Developer
+- Adrian Rosales - Software Developer
 
 ## Getting Started And Contributing
 
