@@ -19,7 +19,7 @@ export default function Cats() {
         setIsLoading(true);
         setError(null);
 
-        const response = await fetch("/api/gitcats");
+        const response = await fetch("/api/cats");
 
         if (!response.ok) {
           throw new Error("Failed to fetch cat data from database.");
