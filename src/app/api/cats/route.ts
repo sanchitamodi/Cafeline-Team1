@@ -18,7 +18,7 @@ const catSchema = new mongoose.Schema({
   personality: [String],
 });
 
-const CatObject = mongoose.models.cat || mongoose.model("cats", catSchema);
+const CatObject = mongoose.models.cats || mongoose.model("cats", catSchema);
 
 async function validateCat(cat: Cat): Promise<boolean> {
   const { name, age, available } = cat;
