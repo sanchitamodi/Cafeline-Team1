@@ -70,10 +70,22 @@ export default function Cats() {
       {isLoading && <p className={styles.loading}>Loading cats from the database...</p>}
       {error && <p className={styles.error}>Error: {error}</p>}
 
-      {!isLoading && !error && (
+      {!isLoading && !error && catsList.length === 0 && (
+        <p className={styles.empty} role="status">
+          Sowy, no cats are available right now. Please come back and check another time! (｡♥‿♥｡)
+        </p>
+      )}
+
+      {!isLoading && !error && catsList.length > 0 && filteredCats.length === 0 && (
+        <p className={styles.empty} role="status">
+          Sowy, no cats match this filter. Please try a different one! (｡•̀ᴗ-)✧
+        </p>
+      )}
+
+      {!isLoading && !error && filteredCats.length > 0 && (
         <ul className={styles.grid}>
           {filteredCats.map((cat) => (
-            <div key={cat.id || (cat as any)._id} className={styles.card}>
+            <li key={cat.id || (cat as any)._id} className={styles.card}>
               <img className={styles.image} src={cat.image} alt={cat.name} />
               <h2 className={styles.name}>᯽{cat.name}᯽</h2>
               <p>
@@ -81,7 +93,7 @@ export default function Cats() {
               </p>
               <p>{cat.description}</p>
               <p>{cat.available ? "Available for adoption" : "Already adopted"}</p>
-            </div>
+            </li>
           ))}
         </ul>
       )}

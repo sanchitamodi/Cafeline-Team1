@@ -22,3 +22,14 @@
   border-radius: 20%;
   border: 10px solid #f0ece8;
 }
+
+.empty {
+  margin: 32px 0;
+  padding: 24px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #6b5844;
+  background: #f7efe3;
+  border: 1px dashed #dbc3a8;
+  border-radius: 20px;
+}
