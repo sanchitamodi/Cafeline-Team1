@@ -67,7 +67,11 @@ export default function Cats() {
         </select>
       </div>
 
-      {isLoading && <p className={styles.loading}>Loading cats from the database...</p>}
+      {isLoading && (
+        <p data-testid="loading-state" className={styles.loading}>
+          Loading cats from the database...
+        </p>
+      )}
       {error && <p className={styles.error}>Error: {error}</p>}
 
       {!isLoading && !error && catsList.length === 0 && (
@@ -87,7 +91,7 @@ export default function Cats() {
           {filteredCats.map((cat) => (
             <li key={cat.id || (cat as any)._id} className={styles.card}>
               <img className={styles.image} src={cat.image} alt={cat.name} />
-              <h2 className={styles.name}>᯽{cat.name}᯽</h2>
+              <h2 className={styles.name}>{cat.name}</h2>
               <p>
                 {cat.gender} <br /> {cat.age} years old <br /> {cat.breed} <br /> {cat.personality}{" "}
               </p>
