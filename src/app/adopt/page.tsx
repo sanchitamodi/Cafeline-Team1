@@ -66,7 +66,6 @@ export default function Adopt() {
               <article>
                 <img src={cat.image} alt={cat.name} width={240} height={240} className={styles.image} />
                 <h3>{cat.name}</h3>
-                <p>Available for adoption</p>
               </article>
             </li>
           ))}
